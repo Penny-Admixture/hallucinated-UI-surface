@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Roseglass</title>
+    <style type="text/tailwindcss">
+      @layer base {
+        body {
+          background-color: var(--desktop-bg-color);
+          background-image: var(--desktop-bg-image);
+          font-family: var(--font-family, sans-serif);
+        }
+      }
+      @layer utilities {
+        /* Define classes the LLM is instructed to use, applying themed styles */
+        .llm-button {
+          @apply bg-[var(--button-bg-color)] text-[var(--button-text-color)] border-none rounded-md py-2 px-4 m-2 cursor-pointer text-base font-medium text-center transition-colors hover:bg-[var(--button-hover-bg-color)] active:bg-[var(--button-hover-bg-color)] active:transform active:translate-y-px;
+        }
+        .llm-text {
+          @apply m-2 text-base text-[var(--text-color)] leading-relaxed;
+        }
+        .llm-title {
+          @apply font-bold text-xl text-[var(--text-color)] mb-3 mt-1 mx-2;
+        }
+        .llm-input,
+        .llm-textarea {
+          @apply m-2 p-2 w-full border border-[var(--input-border-color)] rounded-md bg-[var(--input-bg-color)] font-sans text-[var(--input-text-color)] text-sm transition-all focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-300;
+        }
+        .llm-textarea {
+          @apply min-h-[120px];
+        }
+        .llm-container {
+          @apply w-full flex flex-col items-start mb-4 gap-2 p-2;
+        }
+        .llm-row {
+          @apply w-full flex items-center mb-2 gap-2;
+        }
+        .llm-label {
+          @apply mr-1 text-sm text-[var(--text-color)] opacity-80;
+        }
+        .icon {
+          @apply w-24 h-28 flex flex-col items-center justify-start text-center m-2 p-2 cursor-pointer select-none rounded-lg transition-colors hover:bg-[var(--icon-hover-bg-color)] focus:bg-[var(--icon-hover-bg-color)] focus:outline-none focus:ring-2 focus:ring-blue-500;
+        }
+        .icon-image {
+          @apply text-5xl mb-2 drop-shadow-sm;
+        }
+        .icon-label {
+          @apply text-sm text-[var(--text-color)] font-medium break-words max-w-full leading-tight;
+        }
+        /* Themed component base styles */
+        .bg-desktop {
+          background-color: var(--desktop-bg-color);
+          background-image: var(--desktop-bg-image);
+        }
+        .bg-window {
+          background-color: var(--window-bg-color);
+        }
+        .border-window-border {
+          border-color: var(--window-border-color);
+        }
+        .bg-title-bar {
+          background-color: var(--title-bar-bg-color);
+        }
+        .text-title-bar-text {
+          color: var(--title-bar-text-color);
+        }
+        .bg-menu-bar {
+          background-color: var(--menu-bar-bg-color);
+        }
+        .text-menu-bar-text {
+          color: var(--menu-bar-text-color);
+        }
+        .hover\:bg-menu-item-hover:hover {
+          background-color: var(--menu-item-hover-color);
+        }
+        .bg-content {
+          background-color: var(--content-bg-color);
+        }
+        .text-text {
+          color: var(--text-color);
+        }
+      }
+    </style>
+    <script type="importmap">
+      {
+        "imports": {
+          "react-dom/": "https://esm.sh/react-dom@^19.1.0/",
+          "react/": "https://esm.sh/react@^19.1.0/",
+          "react": "https://esm.sh/react@^19.1.0",
+          "@google/genai": "https://esm.sh/@google/genai@^1.5.1",
+          "@tailwindcss/browser": "https://esm.sh/@tailwindcss/browser@^4.1.10"
+        }
+      }
+    </script>
+    <link rel="stylesheet" href="/index.css" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
